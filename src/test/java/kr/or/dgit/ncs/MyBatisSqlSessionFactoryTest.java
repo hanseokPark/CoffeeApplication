@@ -1,16 +1,16 @@
 package kr.or.dgit.ncs;
 
-import org.apache.ibatis.session.SqlSession;
+import java.sql.Connection;
+
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import kr.or.dgit.coffee.util.MyBatisSqlSessionFactory;
-
-import org.junit.Assert;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class MyBatisSqlSessionFactoryTest {
@@ -28,8 +28,17 @@ public class MyBatisSqlSessionFactoryTest {
 	}
 	
 	@Test
+	public void testFactory() {
+		Assert.assertNotNull(factory);
+	}
+	/*
+	@Test
+	public void testFactory() {
+		Assert.assertNotNull(factory);
+	}*/
+	@Test
 	public void testMyBatisSqlSessionFactory() {
-		SqlSession session = factory.openSession();
+		Connection session = factory.openSession().getConnection();
 		Assert.assertNotNull(session);
 	}
 	

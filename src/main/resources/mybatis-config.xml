@@ -6,7 +6,9 @@
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
-	<typeAliases></typeAliases>
+	<typeAliases>
+		<package name="kr.or.dgit.coffee.Dto"/>
+	</typeAliases>
 	<typeHandlers></typeHandlers>	
 	<environments default="development">
 		<environment id="development">
@@ -22,6 +24,6 @@
 	
 	<mappers>
 		<!-- <mapper resource="kr/or/dgit/it_3st_1team/mappers/EmployeeMapper.xml"/> -->
-		
+		<mapper resource="kr/or/dgit/coffee/mappers/SaleMapper.xml"/>
 	</mappers>
 </configuration>

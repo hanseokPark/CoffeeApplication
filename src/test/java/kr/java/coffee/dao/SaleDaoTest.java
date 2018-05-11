@@ -2,6 +2,7 @@ package kr.java.coffee.dao;
 
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,18 +42,18 @@ public class SaleDaoTest {
 		service = null;
 	}
 	
-	//@Test
+	@Test
 	public void testAselectSaleByAll() {
 		List<Sale> saleLists = service.selectSaleByAll();
 		Assert.assertNotNull(saleLists.size());
 		
 	}
 	
-	//@Test
+	@Test
 	public void testBselectSaleByNo() {
-		Sale sale1 = new Sale();
-		sale1.setNo(1);
-		Sale sale = service.selectSasleByNo(sale1);
+		Sale newSale = new Sale();
+		newSale.setNo(1);
+		Sale sale = service.selectSasleByNo(newSale);
 		Assert.assertNotNull(sale.getSaleCnt());
 	}
 	
@@ -63,15 +64,33 @@ public class SaleDaoTest {
 		Assert.assertNotNull(res);
 		
 	}
-	//@Test
+	
+	@Test
 	public void testDupdateProduct() {
 		Sale newSale = new Sale(5, new Product("A001"), 4500, 1000, 20);
 		int res = service.updateSale(newSale);
 		Assert.assertNotNull(res);
 	}
+	
 	@Test
+	public void testEdeleteProduct() {
+		Sale newSale = new Sale();
+		newSale.setNo(5);
+		int res = service.deleteSale(newSale);
+		Assert.assertNotNull(res);
+	}
+	
+	@Test
+	public void testFcallSaleDetail() {
+		Map<String, Boolean> map = new HashMap<>();
+		map.put("isSalePrice", true);
+		List<Sale> list = service.callSaleDetail(map);
+		Assert.assertNotNull(list.size());
+	}
+	@Test	
 	public void testGcallgetTotal() {
 		List<Map<String, Object>> maps = service.getTotal();
 		Assert.assertNotNull(maps.get(0).size());
 	}
+	
 }

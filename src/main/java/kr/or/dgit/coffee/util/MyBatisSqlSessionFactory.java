@@ -7,6 +7,7 @@ import java.io.InputStream;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;
+import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
@@ -27,7 +28,7 @@ public class MyBatisSqlSessionFactory {
 		}
 		return sqlSessionFactory;
 	}
-	/*public static SqlSession openSession(){
+	public static SqlSession openSession(){
 		return getSqlSessionFactory().openSession();
-	}*/
+	}
 }

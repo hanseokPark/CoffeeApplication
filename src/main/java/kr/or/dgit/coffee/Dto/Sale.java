@@ -8,8 +8,22 @@ public class Sale {
 	private int marginRate; //마진율
 	private Product product; //제품
 	
+	private SaleDetail saleDetail;
+	
 
 	public Sale() {}
+
+
+	
+
+	public Sale(int no, Product product, int saleCnt, int marginRate, SaleDetail saleDetail) {
+		this.no = no;
+		this.saleCnt = saleCnt;
+		this.marginRate = marginRate;
+		this.product = product;
+		this.saleDetail = saleDetail;
+	}
+
 
 
 
@@ -20,6 +34,21 @@ public class Sale {
 		this.saleCnt = saleCnt;
 		this.marginRate = marginRate;
 	}
+
+	
+
+	public SaleDetail getSaleDetail() {
+		return saleDetail;
+	}
+
+
+
+
+	public void setSaleDetail(SaleDetail saleDetail) {
+		this.saleDetail = saleDetail;
+	}
+
+
 
 
 	public int getNo() {

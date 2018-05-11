@@ -2,20 +2,17 @@ package kr.or.dgit.coffee.Dao;
 
 import java.util.List;
 
-import kr.or.dgit.coffee.Dto.Sale;
+import kr.or.dgit.coffee.Dto.Product;
 
-public interface CoffeeDao {
+
+public interface ProductDao {
 	
-	List<Sale> selectSaleByAll();
+	Product selectProductByNo();
+	List<Product> selectProductByAll();	
 	
-	List<Sale> selectSaleByNo();
-	
-	
-	int insertProduct(Sale sale); 	
-	int updateProduct(Sale sale);
-	int deleteProduct(int no);
+	int insertProduct(Product product); 	
+	int updateProduct(Product Product);
+	int deleteProduct(Product Product);
 	
 	
-	/*callSaleDetail()
-	callgetTotal()*/
 }

@@ -60,7 +60,7 @@ public class SaleService {
 	
 	public int deleteSale(Sale sale) {
 		try(SqlSession sqlSession = sessionFactory.openSession()){
-			int res = sqlSession.delete(namespace + ".delete", sale);
+			int res = sqlSession.delete(namespace + ".deleteSale", sale);
 			sqlSession.commit();
 			return res;
 		}
@@ -73,5 +73,11 @@ public class SaleService {
 		}
 	}
 	
+	public List<Sale> callSaleDetail(Map<String, Boolean> map){
+		log.debug("callSaleDetail()");
+		try(SqlSession sqlSession = sessionFactory.openSession()){
+			return sqlSession.selectList(namespace + ".callSaleDetail", map);
+		}
+	}
 	
 }
