@@ -8,73 +8,57 @@ public class Sale {
 	private int marginRate; //마진율
 	private Product product; //제품
 	
-	private Sale() {}
 
-	private Sale(int no) {
-		this.no = no;
-	}
+	public Sale() {}
 
-	private Sale(int no, int saleCnt, int marginRate, Product product) {
+
+
+	public Sale(int no, Product product, int price, int saleCnt, int marginRate) {
 		this.no = no;
+		this.product = product;
+		this.price = price;
 		this.saleCnt = saleCnt;
 		this.marginRate = marginRate;
-		this.product = product;
 	}
+
 
 	public int getNo() {
 		return no;
 	}
-
 	public void setNo(int no) {
 		this.no = no;
 	}
-
 	public String getCode() {
 		return code;
 	}
-
 	public void setCode(String code) {
 		this.code = code;
 	}
-
 	public int getPrice() {
 		return price;
 	}
-
 	public void setPrice(int price) {
 		this.price = price;
 	}
-
 	public int getSaleCnt() {
 		return saleCnt;
 	}
-
 	public void setSaleCnt(int saleCnt) {
 		this.saleCnt = saleCnt;
 	}
-
 	public int getMarginRate() {
 		return marginRate;
 	}
-
 	public void setMarginRate(int marginRate) {
 		this.marginRate = marginRate;
 	}
-
 	public Product getProduct() {
 		return product;
 	}
-
 	public void setProduct(Product product) {
 		this.product = product;
 	}
 
-	@Override
-	public String toString() {
-		return String.format("Sale [no=%s, code=%s, price=%s, saleCnt=%s, marginRate=%s, product=%s]", no, code, price,
-				saleCnt, marginRate, product);
-	}
-	
 	
 	
 }

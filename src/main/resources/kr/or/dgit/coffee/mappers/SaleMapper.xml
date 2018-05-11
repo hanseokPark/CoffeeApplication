@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.dgit.coffee.Dao.SaleDao">
+	
+	<resultMap type="Sale" id="saleResult">
+		<id property="no" column="no"/>
+		<result property="product.code" column="code"/>
+		<result property="price" column="price"/>
+		<result property="saleCnt" column="saleCnt"/>
+		<result property="marginRate" column="marginRate"/>
+	</resultMap>	
+	 
+	<sql id="selectSql">
+		select no, code, price, saleCnt, marginRate from sale
+	</sql>
+	<sql id="insertSql">
+		insert into sale values(#{no}, #{product.code}, #{price}, #{saleCnt}, #{marginRate})
+	</sql>
+	<sql id="deleteSql">
+		delete from sale
+	</sql>
+	<sql id="updateSql">
+		update sale set code=#{product.code}, price=#{price}, saleCnt=#{saleCnt}, marginRate=#{marginRate}
+	</sql>
+	<sql id="whereSql">
+		<where>
+			<if test="no != null">
+				no=#{no}
+			</if>
+		</where>
+	</sql>
+	
+
+	<select id="selectSaleByAll" resultMap="saleResult">
+		<include refid="selectSql"/>
+	</select>
+	
+	<select id="selectSaleByNo" parameterType="Sale" resultMap="saleResult">
+		<include refid="selectSql"/>
+		<include refid="whereSql"/>
+	</select>
+	
+	<insert id="insertSale" parameterType="Sale">
+		<include refid="insertSql"></include>
+	</insert>
+	
+	<delete id="deleteSale" parameterType="Sale">
+		<include refid="deleteSql"/>
+		<include refid="whereSql"/>
+	</delete>
+	
+	<update id="updateSale" parameterType="Sale">
+		<include refid="updateSql"/>
+		<include refid="whereSql"/>
+	</update>
+	
+	<select id="getTotal" resultType="HashMap">
+		select  sum(@saleprice:=price*salecnt) 판매액,
+        sum(@addtax := ceil(@saleprice/11)) 부가세액,
+        sum(@supprice := @saleprice - @addtax) 공급가액,
+        sum(@marPrice := round(@supprice * (marginrate/100))) 마진액
+		from  sale;
+	</select>
+	
+	
+	 
+	
+	
+
+</mapper>
