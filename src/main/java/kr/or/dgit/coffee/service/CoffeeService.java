@@ -1,4 +1,4 @@
-package kr.or.dgit.service;
+package kr.or.dgit.coffee.service;
 
 import org.apache.ibatis.logging.Log;
 import org.apache.ibatis.logging.LogFactory;

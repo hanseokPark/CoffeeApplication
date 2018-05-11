@@ -1,4 +1,4 @@
-package kr.or.dgit.Dto;
+package kr.or.dgit.coffee.Dto;
 
 public class Product {
 	private char code;

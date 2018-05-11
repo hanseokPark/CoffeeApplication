@@ -1,4 +1,4 @@
-package kr.java.coffee.dao;
+package kr.or.dgit.coffee.dao;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -13,7 +13,7 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import kr.or.dgit.service.CoffeeService;
+import kr.or.dgit.coffee.service.CoffeeService;
 
 
 

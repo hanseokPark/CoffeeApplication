@@ -1,4 +1,4 @@
-package kr.or.dgit.ui;
+package kr.or.dgit.coffee.ui;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;

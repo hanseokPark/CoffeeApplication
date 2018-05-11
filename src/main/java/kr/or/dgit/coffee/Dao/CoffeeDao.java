@@ -1,8 +1,8 @@
-package kr.or.dgit.Dao;
+package kr.or.dgit.coffee.Dao;
 
 import java.util.List;
 
-import kr.or.dgit.Dto.Sale;
+import kr.or.dgit.coffee.Dto.Sale;
 
 public interface CoffeeDao {
 	
