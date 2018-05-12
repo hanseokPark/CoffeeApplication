@@ -32,7 +32,7 @@ public class StartUI extends JFrame implements ActionListener {
 	private void initComponents() {
 		setTitle("입력화면");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(800, 300, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -117,7 +117,7 @@ public class StartUI extends JFrame implements ActionListener {
 		}
 	}
 	protected void actionPerformedBtn2(ActionEvent e) {
-		SaleUI sale = new SaleUI();
+		SaleUI sale = new SaleUI();		
 		sale.setVisible(true);
 	}
 	protected void actionPerformedBtn3(ActionEvent e) {

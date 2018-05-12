@@ -1,6 +1,8 @@
 package kr.or.dgit.coffee.Dto;
 
-public class Sale {
+import kr.or.dgit.coffee.ui.ToArray;
+
+public class Sale implements ToArray {
 	private int no;
 	private String code;
 	private int price;
@@ -86,6 +88,16 @@ public class Sale {
 	}
 	public void setProduct(Product product) {
 		this.product = product;
+	}
+
+
+
+
+	@Override
+	public Object[] toArray() {
+		// TODO Auto-generated method stub
+		return new Object[] {saleDetail.getRank(), product.getCode(), product.getName(), String.format("%,d", price), saleCnt, 
+				String.format("%,d", saleDetail.getSupplyPirce()), String.format("%,d", saleDetail.getAddTax()), String.format("%,d", saleDetail.getSalePrice()), String.format("%d%%", marginRate), String.format("%,d", saleDetail.getMarginPrice())};
 	}
 
 	

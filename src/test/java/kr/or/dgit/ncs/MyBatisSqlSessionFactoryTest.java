@@ -28,15 +28,6 @@ public class MyBatisSqlSessionFactoryTest {
 	}
 	
 	@Test
-	public void testFactory() {
-		Assert.assertNotNull(factory);
-	}
-	/*
-	@Test
-	public void testFactory() {
-		Assert.assertNotNull(factory);
-	}*/
-	@Test
 	public void testMyBatisSqlSessionFactory() {
 		Connection session = factory.openSession().getConnection();
 		Assert.assertNotNull(session);

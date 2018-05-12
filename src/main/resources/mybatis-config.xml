@@ -2,7 +2,7 @@
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
-	<properties resource="conf.properties" />
+	<properties resource="application.properties" />
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
@@ -22,8 +22,8 @@
 		</environment>
 	</environments>
 	
-	<mappers>
-		<!-- <mapper resource="kr/or/dgit/it_3st_1team/mappers/EmployeeMapper.xml"/> -->
+	<mappers>		
+		<mapper resource="kr/or/dgit/coffee/mappers/ProductMapper.xml"/>
 		<mapper resource="kr/or/dgit/coffee/mappers/SaleMapper.xml"/>
 	</mappers>
 </configuration>

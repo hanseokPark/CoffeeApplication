@@ -71,6 +71,12 @@ public class Product {
 			return false;
 		return true;
 	}
+
+	/*@Override
+	public Object[] toArray() {
+		// TODO Auto-generated method stub
+		return new Object[] {code, name, String.format("%,d", price)};
+	}*/
 	
 	
 	

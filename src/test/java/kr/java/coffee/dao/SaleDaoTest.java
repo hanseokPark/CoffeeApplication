@@ -12,7 +12,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
-import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import kr.or.dgit.coffee.Dto.Product;
@@ -42,14 +41,14 @@ public class SaleDaoTest {
 		service = null;
 	}
 	
-	@Test
+	//@Test
 	public void testAselectSaleByAll() {
 		List<Sale> saleLists = service.selectSaleByAll();
 		Assert.assertNotNull(saleLists.size());
 		
 	}
 	
-	@Test
+	//@Test
 	public void testBselectSaleByNo() {
 		Sale newSale = new Sale();
 		newSale.setNo(1);
@@ -65,14 +64,14 @@ public class SaleDaoTest {
 		
 	}
 	
-	@Test
+	//@Test
 	public void testDupdateProduct() {
 		Sale newSale = new Sale(5, new Product("A001"), 4500, 1000, 20);
 		int res = service.updateSale(newSale);
 		Assert.assertNotNull(res);
 	}
 	
-	@Test
+	//@Test
 	public void testEdeleteProduct() {
 		Sale newSale = new Sale();
 		newSale.setNo(5);
@@ -80,14 +79,14 @@ public class SaleDaoTest {
 		Assert.assertNotNull(res);
 	}
 	
-	@Test
+	//@Test
 	public void testFcallSaleDetail() {
 		Map<String, Boolean> map = new HashMap<>();
 		map.put("isSalePrice", true);
 		List<Sale> list = service.callSaleDetail(map);
 		Assert.assertNotNull(list.size());
 	}
-	@Test	
+	//@Test	
 	public void testGcallgetTotal() {
 		List<Map<String, Object>> maps = service.getTotal();
 		Assert.assertNotNull(maps.get(0).size());

@@ -2,10 +2,10 @@ package kr.or.dgit.coffee.Dto;
 
 public class SaleDetail {
 	private int rank;
-	private int supplyPirce;
-	private int addTax;
-	private int salePrice;
-	private int marginPrice;
+	private int supplyPirce;//공급가액
+	private int addTax;//부가세액
+	private int salePrice;//판매금액
+	private int marginPrice;//마진액
 	private Sale sale;
 	
 	private SaleDetail() {}
