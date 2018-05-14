@@ -8,10 +8,18 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+
+import org.apache.ibatis.exceptions.PersistenceException;
+
+import kr.or.dgit.coffee.Dto.Product;
+import kr.or.dgit.coffee.Dto.Sale;
+import kr.or.dgit.coffee.service.ProductService;
+import kr.or.dgit.coffee.service.SaleService;
 
 @SuppressWarnings("serial")
 public class StartUI extends JFrame implements ActionListener {
@@ -24,6 +32,7 @@ public class StartUI extends JFrame implements ActionListener {
 	private JTextField tfName;
 	private JButton btn2;
 	private JButton btn3;
+	private JButton btn1;
 
 	public StartUI() {
 		initComponents();
@@ -97,7 +106,8 @@ public class StartUI extends JFrame implements ActionListener {
 		JPanel button_panel = new JPanel();
 		contentPane.add(button_panel, BorderLayout.SOUTH);
 		
-		JButton btn1 = new JButton("입력");
+		btn1 = new JButton("입력");
+		btn1.addActionListener(this);
 		button_panel.add(btn1);
 		
 		btn2 = new JButton("출력1");
@@ -109,6 +119,9 @@ public class StartUI extends JFrame implements ActionListener {
 		button_panel.add(btn3);
 	}
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn1) {
+			actionPerformedBtn1(e);
+		}
 		if (e.getSource() == btn3) {
 			actionPerformedBtn3(e);
 		}
@@ -124,4 +137,64 @@ public class StartUI extends JFrame implements ActionListener {
 		Margins sale = new Margins();
 		sale.setVisible(true);
 	}
+	protected void actionPerformedBtn1(ActionEvent e) {
+		if(!(isEmpty())) {
+			getdate();
+			isEmptyValue();
+			
+		}else {
+			JOptionPane.showMessageDialog(null, "모든 항목을 입력해주세요");
+		}
+	}
+
+	private void getdate() {
+		String code = tfNo.getText();
+		String name = tfName.getText();
+		int price = Integer.parseInt(tfPrice.getText());
+		int saleCnt = Integer.parseInt((tfSale.getText()));
+		int marginRate = Integer.parseInt(tfMargins.getText());
+		
+		Product product = new Product(code,name);
+		ProductService.insertProduct(product);
+		
+		Sale sale = new Sale(new Product(code),price,saleCnt,marginRate);
+		SaleService.insertSale(sale);
+		
+	
+	}
+
+	private boolean isEmpty() {
+		// TODO Auto-generated method stub
+		return tfNo.getText().equals("") || tfName.getText().equals("") ||tfPrice.getText().equals("") || 
+				tfSale.getText().equals("") || tfMargins.getText().equals("");
+	}
+
+	private void isEmptyValue() {
+		// TODO Auto-generated method stub
+		tfNo.setEditable(true);
+		tfNo.setText("");
+		tfName.setText("");
+		tfPrice.setText("");
+		tfSale.setText("");
+		tfMargins.setText("");
+		tfNo.requestFocus();
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

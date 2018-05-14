@@ -18,6 +18,16 @@ public class Sale implements ToArray {
 
 	
 
+	public Sale(Product product, int price, int saleCnt, int marginRate) {
+		this.product = product;
+		this.price = price;
+		this.saleCnt = saleCnt;
+		this.marginRate = marginRate;
+	}
+
+
+
+
 	public Sale(int no, Product product, int saleCnt, int marginRate, SaleDetail saleDetail) {
 		this.no = no;
 		this.saleCnt = saleCnt;

@@ -13,9 +13,9 @@ import kr.or.dgit.coffee.util.MyBatisSqlSessionFactory;
 public class ProductService {
 	private static final Log log = LogFactory.getLog(ProductService.class);	
 	private static final ProductService instance = new ProductService();
-	private SqlSessionFactory sessionFactory;
+	private static SqlSessionFactory sessionFactory;
 	
-	private String namespace = "kr.or.dgit.coffee.Dao.ProductDao";
+	private static final  String namespace = "kr.or.dgit.coffee.Dao.ProductDao";
 	
 	private ProductService() {
 		sessionFactory = MyBatisSqlSessionFactory.getSqlSessionFactory();
@@ -39,7 +39,7 @@ public class ProductService {
 		}
 	}
 	
-	public int insertProduct(Product product) {
+	public static int insertProduct(Product product) {
 		log.debug("insertProduct()");
 		try (SqlSession sqlSession = sessionFactory.openSession()){
 			int res = sqlSession.insert(namespace + ".insertProduct", product);

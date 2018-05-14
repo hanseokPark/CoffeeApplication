@@ -14,7 +14,7 @@
 		select no, code, price, saleCnt, marginRate from sale
 	</sql>
 	<sql id="insertSql">
-		insert into sale values(#{no}, #{product.code}, #{price}, #{saleCnt}, #{marginRate})
+		insert into sale(code, price, saleCnt, marginRate) values(#{product.code}, #{price}, #{saleCnt}, #{marginRate})
 	</sql>
 	<sql id="deleteSql">
 		delete from sale
